@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Space Project</title>
     <link rel="stylesheet" href="style.css">
-    <title>My Space Project</title>
 </head>
 
 <body>
@@ -13,22 +13,23 @@
     <section class="hero-section">
 
         <nav>
-            <div class="burger-menu">☰</div>
-            <div class="nav-icons">
-                <span class="icon">search</span> <span class="icon">login</span></div>
-        </nav>
-        <aside class="side-menu">
-            <div class="menu-header">
-                <span class="close-btn">&times;</span> </div>
-            <ul class="menu-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Galaxy Map</a></li>
-                <li><a href="#">Starships</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-        </aside>
+            <div class="burger-menu">
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
 
-        <div class="menu-overlay"></div>
+            <div class="nav-icons">
+                <span class="icon mysearch">
+                    <svg class="icon-svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg> 
+                    Search
+                </span>
+            </div>
+        </nav>
 
         <div class="header-banner-container">
             <img src="./img/1slide-min.jpg" alt="Space Nebula Image">
@@ -36,18 +37,39 @@
             <div class="banner-content">
                 <h1>Alex Space Project</h1>
                 <p>Explore the universe</p>
-                <button class="btn-primary">Start Journey</button>
+
+                <a href="#start-content" class="btn-primary">Start Journey</a>
             </div>
         </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="start-content">
         <div class="content-card">
             <h2>Latest Discoveries</h2>
-            <p>Content goes here...</p>
+            <p>Welcome to the cosmos. The journey begins here.</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </div>
     </section>
+
+    <aside class="side-menu">
+        <div class="menu-header">
+            <span class="close-btn">&times;</span>
+        </div>
+        <ul class="menu-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Galaxy Map</a></li>
+            <li><a href="#">Starships</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </aside>
+
+    <div class="menu-overlay"></div>
+
     <script src="./js/sidemenu.js"></script>
+
 </body>
 
 </html>

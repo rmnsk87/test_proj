@@ -1,4 +1,6 @@
-/* RESET STYLES*/
+/* ========================
+   1. RESET ALL STYLES
+   ======================== */
 
 *,
 *::before,
@@ -8,6 +10,7 @@
 
 * {
     margin: 0;
+    padding: 0;
 }
 
 html,
@@ -21,63 +24,32 @@ body {
 }
 
 img,
-picture,
-video,
-canvas,
 svg {
     display: block;
     max-width: 100%;
 }
 
 input,
-button,
-textarea,
-select {
+button {
     font: inherit;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    overflow-wrap: break-word;
-}
 
-
-/* "Interstellar Dust" pre-defined Styles */
+/* ========================
+   2. VARIABLES (Interstellar)
+   ======================== */
 
 :root {
-    /* Backgrounds */
     --space-bg-primary: #0F0A10;
-    /* Near black with a very slight warm undertone */
     --space-bg-secondary: #1A131C;
-    /* Deep warm charcoal - Cards, sections */
     --space-bg-tertiary: #2D2130;
-    /* Lighter purple-brown for highlights */
-    /* Text */
     --space-text-primary: #FFF5E6;
-    /* Off-white cream - Much warmer than pure white */
     --space-text-secondary: #D1C2D3;
-    /* Warm light grey - Body text */
     --space-text-muted: #8C7A8F;
-    /* Muted warm grey */
-    /* Accents & Highlights */
     --space-accent-main: #FF7B00;
-    /* Vibrant Orange/Gold - The color of stars and cosmic dust */
     --space-accent-hover: #FF9E40;
-    /* Lighter orange for hover */
-    --space-accent-secondary: #D6336C;
-    /* Deep Magenta/Raspberry - A nice contrast accent */
-    /* Borders & Dividers */
     --space-border: rgba(255, 123, 0, 0.25);
-    /* Subtle orange glow border */
 }
-
-
-/* --- CUSTOM PART --- */
 
 body {
     background-color: var(--space-bg-primary);
@@ -86,150 +58,67 @@ body {
 }
 
 
-/* 1. HERO SECTION WRAPPER */
+/* ========================
+   3. HERO SECTION
+   ======================== */
 
 .hero-section {
     position: relative;
-    /* Acts as the anchor for the absolute nav */
     width: 100%;
-    height: 100dvh;
-    /* 100% of the mobile screen height */
+    height: 100vh;
+    /* Full Mobile Height */
     overflow: hidden;
 }
 
 
-/* 2. NAVIGATION OVERLAY */
+/* Navigation Bar */
 
 nav {
     position: absolute;
-    /* Floats on top of the image */
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px;
     z-index: 10;
-    /* Ensures it stays above the image */
-    /* Flexbox to separate Burger (left) and Icons (right) */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.burger-menu,
-.icon {
-    font-size: 1.5rem;
-    color: var(--space-text-primary);
-    cursor: pointer;
+
+/* Icons */
+
+.icon-svg {
+    width: 24px;
+    height: 24px;
 }
 
-.nav-icons {
+.burger-menu {
+    cursor: pointer;
+    color: var(--space-text-primary);
+}
+
+.burger-menu .icon-svg {
+    width: 32px;
+    height: 32px;
+}
+
+.mysearch {
     display: flex;
-    gap: 20px;
-    /* Space between Search and Login */
-}
-
-
-/* --- SIDE MENU STYLES --- */
-
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: var(--space-bg-secondary);
-    border-right: 1px solid var(--space-border);
-    z-index: 1000;
-    padding: 20px;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-
-/* Class to add via JS to show the menu */
-
-.side-menu.active {
-    transform: translateX(0);
-}
-
-
-/* The 'X' Close Button */
-
-.menu-header {
-    text-align: right;
-    margin-bottom: 20px;
-}
-
-.close-btn {
-    font-size: 2rem;
-    color: var(--space-text-muted);
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-btn:hover {
-    color: var(--space-accent-secondary);
-}
-
-
-/* Menu Links */
-
-.menu-links {
-    list-style: none;
-}
-
-.menu-links li {
-    margin-bottom: 15px;
-}
-
-.menu-links a {
     color: var(--space-text-primary);
-    font-size: 1.2rem;
-    display: block;
-    padding: 10px;
-    border-radius: 4px;
-}
-
-.menu-links a:hover {
-    background-color: var(--space-bg-tertiary);
-    color: var(--space-accent-main);
+    font-weight: bold;
 }
 
 
-/* The Dark Overlay (Background dimming) */
-
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-
-/* Show overlay when active */
-
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-/* 3. BANNER IMAGE CONTAINER */
+/* Banner Image */
 
 .header-banner-container {
     width: 100%;
     height: 100%;
-    position: relative;
 }
-
-
-/* SideMenu transition and cover the screen without stretching */
 
 .header-banner-container img {
     width: 100%;
@@ -240,7 +129,7 @@ nav {
 }
 
 
-/* 4. TEXT ON TOP OF IMAGE */
+/* Text Over Image */
 
 .banner-content {
     position: absolute;
@@ -254,8 +143,9 @@ nav {
 
 .banner-content h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    color: var(--space-text-primary);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
 }
 
 .banner-content p {
@@ -265,14 +155,7 @@ nav {
 }
 
 
-/* 5. REST OF CONTENT */
-
-.content-section {
-    padding: 2rem;
-}
-
-
-/* Button Styles */
+/* Buttons */
 
 .btn-primary {
     background-color: var(--space-accent-main);
@@ -288,4 +171,101 @@ nav {
 .btn-primary:hover {
     background-color: var(--space-accent-hover);
     box-shadow: 0 0 15px var(--space-accent-main);
+}
+
+
+/* ========================
+   4. SLIDING SIDE MENU
+   ======================== */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--space-bg-secondary);
+    border-right: 1px solid var(--space-border);
+    z-index: 1000;
+    padding: 20px;
+    /* Hide off-screen left */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.side-menu.active {
+    transform: translateX(0);
+    /* Slide in */
+}
+
+.menu-header {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    font-size: 2rem;
+    color: var(--space-text-muted);
+    cursor: pointer;
+    line-height: 0.5;
+}
+
+.close-btn:hover {
+    color: var(--space-accent-main);
+}
+
+.menu-links {
+    list-style: none;
+}
+
+.menu-links li {
+    margin-bottom: 15px;
+}
+
+.menu-links a {
+    color: var(--space-text-primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    padding: 10px;
+}
+
+.menu-links a:hover {
+    color: var(--space-accent-main);
+    background-color: var(--space-bg-tertiary);
+    border-radius: 4px;
+}
+
+
+/* ========================
+   5. OVERLAY & CONTENT
+   ======================== */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.content-section {
+    padding: 2rem;
+}
+
+.content-card {
+    background-color: var(--space-bg-secondary);
+    border: 1px solid var(--space-border);
+    padding: 2rem;
+    border-radius: 12px;
 }
