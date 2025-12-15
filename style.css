@@ -269,3 +269,127 @@ nav {
     padding: 2rem;
     border-radius: 12px;
 }
+
+
+/* ========================
+   6. SEARCH MODAL
+   ======================== */
+
+
+/* The Background Overlay (Dimmer) */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Dark dim */
+    backdrop-filter: blur(5px);
+    /* Blurs the background content */
+    z-index: 3000;
+    /* Above EVERYTHING */
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    /* Flexbox to center the box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* The Active State (Show it) */
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* The Modal Box itself */
+
+.modal-box {
+    background-color: var(--space-bg-secondary);
+    border: 1px solid var(--space-border);
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 123, 0, 0.15);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+
+/* Animation: Scale up when opening */
+
+.modal-overlay.active .modal-box {
+    transform: scale(1);
+}
+
+.modal-box h3 {
+    color: var(--space-accent-main);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+/* Close 'X' Button */
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--space-text-muted);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: var(--space-accent-secondary);
+}
+
+
+/* Form Styles */
+
+.modal-form {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-form input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--space-text-muted);
+    color: var(--space-text-primary);
+    border-radius: 4px;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.modal-form input:focus {
+    border-color: var(--space-accent-main);
+    box-shadow: 0 0 10px rgba(255, 123, 0, 0.2);
+}
+
+.modal-form button {
+    background-color: var(--space-accent-main);
+    color: var(--space-bg-primary);
+    border: none;
+    padding: 0 25px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-form button:hover {
+    background-color: var(--space-accent-hover);
+}
