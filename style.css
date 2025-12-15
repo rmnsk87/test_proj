@@ -98,7 +98,7 @@ h6 {
 }
 
 
-/* CUSTOM PART */
+/* --- CUSTOM PART --- */
 
 body {
     background-color: var(--space-bg-primary);
@@ -106,34 +106,107 @@ body {
     font-family: sans-serif;
 }
 
-h1,
-h2,
-h3 {
-    color: var(--space-text-primary);
-    letter-spacing: 1px;
-    text-align: center;
+
+/* 1. HERO SECTION WRAPPER */
+
+.hero-section {
+    position: relative;
+    /* Acts as the anchor for the absolute nav */
+    width: 100%;
+    height: 100dvh;
+    /* 100% of the mobile screen height */
+    overflow: hidden;
 }
 
 
-/* Header banner container */
+/* 2. NAVIGATION OVERLAY */
+
+nav {
+    position: absolute;
+    /* Floats on top of the image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    /* Ensures it stays above the image */
+    /* Flexbox to separate Burger (left) and Icons (right) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.burger-menu,
+.icon {
+    font-size: 1.5rem;
+    color: var(--space-text-primary);
+    cursor: pointer;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    /* Space between Search and Login */
+}
+
+
+/* 3. BANNER IMAGE CONTAINER */
 
 .header-banner-container {
     width: 100%;
-    box-shadow: 0 10px 30px -10px rgba(0, 229, 255, 0.3);
+    height: 100%;
+    /* Fills the .hero-section */
+    position: relative;
 }
 
 
-/* A typical content card or section */
+/* The Magic: Making the image cover the screen without stretching */
 
-.content-card {
-    background-color: var(--space-bg-secondary);
-    border: 1px solid var(--space-border);
+.header-banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cropped to fit, like background-size: cover */
+    object-position: center;
+    /* Optional: Dim the image slightly so text pops */
+    filter: brightness(0.7);
+}
+
+
+/* 4. TEXT ON TOP OF IMAGE */
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Perfectly centered */
+    text-align: center;
+    width: 90%;
+    z-index: 5;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p {
+    color: var(--space-text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+
+/* 5. REST OF CONTENT */
+
+.content-section {
     padding: 2rem;
-    border-radius: 12px;
 }
 
 
-/* Buttons */
+/* Button Styles (From your code) */
 
 .btn-primary {
     background-color: var(--space-accent-main);
@@ -146,24 +219,7 @@ h3 {
     transition: all 0.3s ease;
 }
 
-
-/* Glowing effect on hover */
-
 .btn-primary:hover {
     background-color: var(--space-accent-hover);
     box-shadow: 0 0 15px var(--space-accent-main);
-}
-
-a {
-    color: var(--space-accent-main);
-    text-decoration: none;
-}
-
-.divider {
-    width: 100px;
-    height: 30px;
-}
-
-nav {
-    min-height: 50px;
 }
