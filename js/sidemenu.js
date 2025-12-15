@@ -1,3 +1,5 @@
+/* --- SEARCHING DOM ELEMENTS --- */
+
 // 1. Navigation & Menu
 const burgerBtn = document.querySelector('.burger-menu');
 const sideMenu = document.querySelector('.side-menu');
